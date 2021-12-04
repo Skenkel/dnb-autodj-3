@@ -13,7 +13,7 @@ The auto-DJ system has been tested for Ubuntu 16.04 LTS.
 It is recommended to install the auto-DJ using pip in a conda environment:
 
 ```
-conda create -n "autodj" python=3.6.0
+conda create -n "autodj" python=3.7.0
 source activate autodj
 pip install git+https://github.com/lenvdv/dnb-autodj-3
 ```
