@@ -24,6 +24,8 @@ stream.setFormatter(formatter)
 logger = logging.getLogger('colorlogger')
 logger.setLevel(LOG_LEVEL)
 logger.addHandler(stream)
+import warnings
+warnings.filterwarnings("ignore", category=UserWarning) 
 
 if __name__ == '__main__':
 
