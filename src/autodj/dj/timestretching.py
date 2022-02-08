@@ -69,8 +69,12 @@ def time_stretch_sola(audio, f, sample_rate = 44100, wsola = False):
 		cur_win_min = theor_center - seek_win_len_half
 		cur_win_max = theor_center + seek_win_len_half
 		correlation = signal.fftconvolve(audio[int(cur_win_min):int(cur_win_max+len(frame))], frame[::-1], mode='valid') # Faster than np.correlate! cf http://scipy-cookbook.readthedocs.io/items/ApplyFIRFilter.html
-		optimum = np.argmax(correlation[:int(2*seek_win_len_half)])
-		
+		try:
+			optimum = np.argmax(correlation[:int(2*seek_win_len_half)])
+		except:
+			print(seek_win_len_half)
+			print(correlation )
+			optimum = correlation[0]
 		return theor_center  + (optimum - seek_win_len_half)
 
 	# --------------Algorithm------------------
