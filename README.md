@@ -15,7 +15,7 @@ It is recommended to install the auto-DJ using pip in a conda environment:
 ```
 conda create -n "autodj" python=3.7.0
 source activate autodj
-pip install git+https://github.com/lenvdv/dnb-autodj-3
+pip install git+https://github.com/skenkel/dnb-autodj-3
 ```
 
 In case the installation fails when installing pyaudio, perform the following commands and retry the installation:
