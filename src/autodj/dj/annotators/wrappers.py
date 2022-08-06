@@ -234,7 +234,11 @@ class ThemeDescriptorWrapper(BaseAnnotationWrapper):
             end_sample = int(44100 * song.downbeats[song.segment_indices[i + 1]])
             slices.append((start_sample, end_sample))
 
-        song_theme_descriptor = self.theme_annotator(song.audio, slices)
+        try:
+            song_theme_descriptor = self.theme_annotator(song.audio, slices)
+        except:
+            no_theme = np.ndarray(shape=(1,3), dtype = float, order ='F')
+            song_theme_descriptor = no_theme
         return {'song_theme_descriptor' : song_theme_descriptor.tolist()}
 
     def is_annotated_in(self, song):
