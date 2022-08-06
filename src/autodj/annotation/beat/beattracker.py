@@ -73,7 +73,7 @@ class BeatTracker:
 
 		for frame in FrameGenerator(audio, frameSize=self.FRAME_SIZE, hopSize=self.HOP_SIZE):
 			pool.add('audio.windowed_frames', w(frame))
-
+		# todo, fix this block. Some songs will break essentia and cause a silent failure
 		fft_result = fft(pool['audio.windowed_frames']).astype('complex64')
 		fft_result_mag = np.absolute(fft_result)
 		fft_result_ang = np.angle(fft_result)
